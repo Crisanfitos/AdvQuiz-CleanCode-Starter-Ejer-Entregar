@@ -6,7 +6,7 @@ public interface QuestionContract {
 
   interface View {
     void injectPresenter(Presenter presenter);
-
+    void disableButtonsEnableNext();
     void displayQuestion(QuestionViewModel viewModel);
     void resetReply();
     void updateReply(boolean isCorrect);
