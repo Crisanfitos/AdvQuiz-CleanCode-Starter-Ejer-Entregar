@@ -48,7 +48,12 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     Log.e(TAG, "onRestart()");
 
     //TODO: falta implementacion
-    view.get().updateReply(state.optionCorrect);
+    if (state.optionClicked) {
+      view.get().updateReply(state.optionCorrect);
+    } else {
+      view.get().resetReply();
+    }
+
   }
 
 
@@ -90,6 +95,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
 
     boolean isCorrect = model.isCorrectOption(option);
     state.optionCorrect = isCorrect;
+    state.optionClicked = isCorrect;
     if(isCorrect) {
       state.cheatEnabled=false;
       view.get().updateReply(true);
@@ -115,6 +121,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     state.option1 = model.getOption1();
     state.option2 = model.getOption2();
     state.option3 = model.getOption3();
+    state.optionClicked = false;
     view.get().displayQuestion(state);
     view.get().resetReply();
 
@@ -125,6 +132,9 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     Log.e(TAG, "onCheatButtonClicked()");
 
     //TODO: falta implementacion
+    QuestionToCheatState newState = new QuestionToCheatState(model.getAnswer());
+    passStateToCheatScreen(newState);
+    view.get().navigateToCheatScreen();
   }
 
   private void passStateToCheatScreen(QuestionToCheatState state) {

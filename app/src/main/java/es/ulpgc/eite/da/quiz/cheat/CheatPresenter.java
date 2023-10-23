@@ -1,5 +1,6 @@
 package es.ulpgc.eite.da.quiz.cheat;
 
+import android.content.res.Resources;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
@@ -58,7 +59,7 @@ public class CheatPresenter implements CheatContract.Presenter {
     if (savedState != null) {
 
       // fetch the model
-
+      model.setAnswer(savedState.answer);
       // update the state
 
     }

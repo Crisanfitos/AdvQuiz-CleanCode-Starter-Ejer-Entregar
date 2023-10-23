@@ -27,7 +27,8 @@ public class CheatActivity
 
     ((TextView) findViewById(R.id.warningTextView))
         .setText(R.string.warning_message);
-
+    ((TextView) findViewById(R.id.answerTextView))
+            .setText(R.string.empty_answer);
     // do the setup
     CheatScreen.configure(this);
 
