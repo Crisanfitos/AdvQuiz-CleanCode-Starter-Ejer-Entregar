@@ -10,10 +10,12 @@ public class QuestionViewModel {
   public String option3;
 
   public boolean optionEnabled;
+  public boolean optionCorrect;
   public boolean nextEnabled;
   public boolean cheatEnabled;
 
   public boolean optionClicked;
+
   public int option;
 
   public boolean answerCheated;

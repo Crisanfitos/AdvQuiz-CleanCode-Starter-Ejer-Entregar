@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="@string/empty_answer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -34,27 +34,27 @@
             android:id="@+id/option1Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button"
-            android:tag="1"
             android:onClick="onOptionButtonClicked"
+            android:tag="1"
+            android:text="@string/empty_answer"
             tools:text="Option 1" />
 
         <Button
             android:id="@+id/option2Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button"
-            android:tag="2"
             android:onClick="onOptionButtonClicked"
+            android:tag="2"
+            android:text="@string/empty_answer"
             tools:text="Option 2" />
 
         <Button
             android:id="@+id/option3Button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button"
-            android:tag="3"
             android:onClick="onOptionButtonClicked"
+            android:tag="3"
+            android:text="@string/empty_answer"
             tools:text="Option 3" />
 
     </LinearLayout>
@@ -64,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="@string/empty_reply"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
@@ -84,8 +84,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="Button"
             android:onClick="onNextButtonClicked"
+            android:text="@string/empty_answer"
             tools:text="Next" />
 
         <Space
@@ -98,8 +98,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="Button"
             android:onClick="onCheatButtonClicked"
+            android:text="@string/empty_answer"
             tools:text="Cheat" />
     </LinearLayout>
 

@@ -6,7 +6,6 @@ public interface QuestionContract {
 
   interface View {
     void injectPresenter(Presenter presenter);
-    void disableButtonsEnableNext();
     void displayQuestion(QuestionViewModel viewModel);
     void resetReply();
     void updateReply(boolean isCorrect);
@@ -17,7 +16,6 @@ public interface QuestionContract {
   interface Presenter {
     void injectView(WeakReference<View> view);
     void injectModel(Model model);
-
     void onResume();
     void onStart();
     void onRestart();

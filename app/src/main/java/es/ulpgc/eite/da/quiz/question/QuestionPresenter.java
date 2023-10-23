@@ -48,7 +48,7 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     Log.e(TAG, "onRestart()");
 
     //TODO: falta implementacion
-
+    view.get().updateReply(state.optionCorrect);
   }
 
 
@@ -61,12 +61,21 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     // use passed state if is necessary
     CheatToQuestionState savedState = getStateFromCheatScreen();
     if (savedState != null) {
-
-      // fetch the model
+      if (savedState.answerCheated) {
+        model.updateQuizIndex();
+      }
     }
+
 
     // update the view
     view.get().displayQuestion(state);
+    if(state.optionClicked){
+      if(state.optionCorrect) {
+        view.get().updateReply(true);
+      }else{
+        view.get().updateReply(false);
+      }
+    }
   }
 
 
@@ -79,15 +88,21 @@ public class QuestionPresenter implements QuestionContract.Presenter {
   public void onOptionButtonClicked(int option) {
     Log.e(TAG, "onOptionButtonClicked()");
 
-    //TODO: falta implementacion
-
     boolean isCorrect = model.isCorrectOption(option);
+    state.optionCorrect = isCorrect;
     if(isCorrect) {
       state.cheatEnabled=false;
+      view.get().updateReply(true);
     } else {
       state.cheatEnabled=true;
+      view.get().updateReply(false);
     }
 
+    enableNextButton();
+    state.optionCorrect = isCorrect;
+    model.updateQuizIndex();
+    state.quizIndex = model.getQuizIndex();
+    view.get().displayQuestion(state);
   }
 
   @Override
@@ -95,6 +110,14 @@ public class QuestionPresenter implements QuestionContract.Presenter {
     Log.e(TAG, "onNextButtonClicked()");
 
     //TODO: falta implementacion
+    disableNextButton();
+    state.question = model.getQuestion();
+    state.option1 = model.getOption1();
+    state.option2 = model.getOption2();
+    state.option3 = model.getOption3();
+    view.get().displayQuestion(state);
+    view.get().resetReply();
+
   }
 
   @Override
@@ -107,13 +130,14 @@ public class QuestionPresenter implements QuestionContract.Presenter {
   private void passStateToCheatScreen(QuestionToCheatState state) {
 
     //TODO: falta implementacion
+    mediator.setQuestionToCheatState(state);
 
   }
 
   private CheatToQuestionState getStateFromCheatScreen() {
 
     //TODO: falta implementacion
-
+    mediator.getCheatToQuestionState();
     return null;
   }
 

@@ -108,8 +108,8 @@ public class QuestionActivity
       ((TextView) findViewById(R.id.replyTextView))
           .setText(R.string.incorrect_reply);
     }
-  }
 
+  }
 
   public void onNextButtonClicked(View view) {
     presenter.onNextButtonClicked();
